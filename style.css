@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/**
+    GLOBAL STYLING
+*/
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #4CAF50, #81C784);
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4caf50, #81c784);
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.head h1 {
+    color: #FFFFFF;
+    font-family: "ClashDisplay-Variable", sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.head p {
+    color: #FFFFFF;
+    font-weight: 400;
+    font-family: "Epilogue", sans-serif;
+    font-size: 27px;
+}
+
+span {
+    font-family: "Inter", sans-serif;
+    text-transform: uppercase;
+}
+
+form {
+    width: 25%;
+}
+
+form input {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    padding: 24px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+form input::placeholder {
+    color: #FFFFFF;
+    font-family: "Epilogue", sans-serif;
+    font-size: 18px;
+}
+
+form input:focus {
+    border-color: #FFFFFF;
+}
+
+.btn {
+    width: 25%;
+    margin-top: 20px;
+}
+
+.btn a {
+    width: 100%;
+    background-color: #FFFFFF;
+    color: #4CAF50;
+    padding: 24px 40%;
+    font-family: "Epilogue", sans-serif;
+    font-size: 20px;
+}
+
+.btn a:hover {
+    background-color: #66bb6a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    color: #FFFFFF;
+}
