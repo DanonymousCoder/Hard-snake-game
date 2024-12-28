@@ -33,6 +33,8 @@ a {
     gap: 1em;
     justify-content: center;
     align-items: center;
+    width: 60%;
+    text-align: center;
 }
 
 .head h1 {
