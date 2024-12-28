@@ -86,16 +86,18 @@ form input:focus {
     margin-top: 20px;
 }
 
-.btn a {
+.btn button {
     width: 100%;
     background-color: #FFFFFF;
     color: #4CAF50;
     padding: 24px 40%;
     font-family: "Epilogue", sans-serif;
     font-size: 20px;
+    border: none;
+    outline: none;
 }
 
-.btn a:hover {
+.btn button:hover {
     background-color: #66bb6a;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
