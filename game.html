@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+        CSS
+    -->
+
+    <link rel="stylesheet" href="./assets/game.css">
+
     <title>Snake Game</title>
 </head>
+
 <body>
-    
-    <h1>Snake Game</h1>
-    <canvas id="gameCanvas" width="400" height="400">
 
-    </canvas>
+    <div class="container">
+        <div class="scores">
+            <div class="curr-score">
+                <p>000</p>
+            </div>
+            <div class="highscore">
+                <p>000</p>
+            </div>
+        </div>
+        <div class="board">
+            <div class="start">
+                <img src="./image/snake-removebg-preview.png" alt="">
+                <h1>Press Spacebar To Start</h1>
+            </div>
+            <canvas id="gameCanvas" width="500" height="500">
+
+            </canvas>
+        </div>
+    </div>
 
 
-    <script src="../game.js"></script>
+    <script src="./js/game.js"></script>
 </body>
+
 </html>
