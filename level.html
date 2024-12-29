@@ -3,12 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+        CSS
+    -->
+
+    <link rel="stylesheet" href="./assets/level.css">
+
     <title>Level | Hard snake game</title>
 </head>
 <body>
-    <h1>Hello <span id="user">USER</span></h1>
     
 
-    <script src="./script.js"></script>
+    <div class="container">
+        <h1>Hello <span id="user">USER</span></h1>
+
+        <div class="levels">
+            <h3>Choose your level</h3>
+
+            <div class="easy">
+                <button id="easy">Easy</button>
+            </div>
+
+            <div class="medium">
+                <button id="medium">Medium</button>
+            </div>
+
+            <div class="advanced">
+                <button id="medium">Advanced</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="./js/level.js"></script>
 </body>
 </html>
