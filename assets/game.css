@@ -27,7 +27,8 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;    border-radius: 30px;
+    align-items: center;
+    border-radius: 30px;
 }
 
 .start {
@@ -54,4 +55,8 @@ canvas {
     border: 24px solid;
     border-image: linear-gradient(to bottom, #5a684a, #497361) 1;
     border-radius: 80px;
+}
+
+canvas {
+    background-color: #c4d4aa;
 }
