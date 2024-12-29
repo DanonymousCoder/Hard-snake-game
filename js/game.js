@@ -14,7 +14,5 @@ document.addEventListener("keydown", setDirection);
 function setDirection(event) {
     if (event.keycode == 37 && direction != "RIGHT") {
         direction = "LEFT";
-    } else if (event.keycode == 39 && direction != "LEFT"){
-        direction = "RIGHT";
-    }
+    } else if (event.
 }

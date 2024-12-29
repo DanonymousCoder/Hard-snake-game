@@ -41,7 +41,7 @@
 
 canvas {
     background-color: #c4d4aa;
-    border: 12px solid;
+    border: 24px solid;
     border-image: linear-gradient(to bottom, #5a684a, #497361) 1;
-    border-radius: 30px;
+    border-radius: 80px;
 }
