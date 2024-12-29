@@ -21,3 +21,7 @@ function draw() {
         })
     };
 }
+
+
+// Draw testing
+draw();
