@@ -32,11 +32,21 @@
 
 .start {
     position: absolute;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
 }
 
 .start img {
-    height: 100px;
+    height: 300px;
+}
+
+.start h1 {
+    font-family: "Epilogue", sans-serif;
+    font-weight: 700;
+    color: #497361;
 }
 
 canvas {
