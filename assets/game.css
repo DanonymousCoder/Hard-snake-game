@@ -10,4 +10,10 @@
     gap: 3em;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+canvas {
+    background-color: #46d853;
 }
