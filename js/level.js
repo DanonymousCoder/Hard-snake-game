@@ -14,3 +14,8 @@ medium.addEventListener("click", () => {
     window.location.href = "../game.html";
 })
 
+hard.addEventListener("click", () => {
+    window.location.href = "../game.html";
+})
+
+hard.addEventLis
