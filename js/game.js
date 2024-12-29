@@ -22,3 +22,7 @@ function setDirection(event) {
         direction = "DOWN";
     }
 }
+
+function draw() {
+    
+}
