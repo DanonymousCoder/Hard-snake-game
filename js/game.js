@@ -100,5 +100,15 @@ function speedIncrease() {
         gameSDelay = gameSDelay - 5;
     } else if (gameSDelay > 100) {
         gameSDelay = gameSDelay - 3;
+    } else if (gameSDelay > 50) {
+        gameSDelay = gameSDelay - 2;
+    } else if (gameSDelay > 25) {
+        gameSDelay = gameSDelay - 1;
     }
+}
+
+function checkForCollision() {
+    let ori = snake[0];
+
+    if (ori.x < 1 || ori.x > gridSize)
 }
