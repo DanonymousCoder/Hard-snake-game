@@ -19,8 +19,8 @@ function draw() {
         snake.forEach((segment) => {
             let snakeElement = document.createElement("div");
             snakeElement.classList.add("snake");
-            snakeElement.style.gridRowStart = segment.y;
-            snakeElement.style.gridColumnStart = segment.x;
+            snakeElement.style.gridRow = segment.y;
+            snakeElement.style.gridColumn = segment.x;
             canvas.appendChild(snakeElement);
         })
     };
@@ -41,7 +41,8 @@ draw();
 function snakeFood() {
     let foodElement = document.createElement("div");
     foodElement.classList.add("food");
-    foodElement.style.gridRowStart = 5;
+    foodElement.style.gridRow = food.y;
+    foodElement.style.gridColumn = food.x;
     canvas.appendChild(foodElement);
 }
 
@@ -52,5 +53,25 @@ function generateRandomFood() {
     return {
         x,
         y
+    }
+}
+
+
+let whereFace = "up";
+
+function moveSnake() {
+    let ori = {
+        x: snake[0].x,
+        y: snake[0].y
+    }
+
+    if (whereFace == "up") {
+        ori.y++;
+    } else if (whereFace == "right") {
+        ori.x++;
+    } else if () {
+
+    } else if () {
+
     }
 }
