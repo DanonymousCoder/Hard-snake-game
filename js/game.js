@@ -89,10 +89,16 @@ function moveSnake() {
             moveSnake();
             draw();
         }, gameSDelay);
+    } else {
+        snake.pop();
     }
 }
 
-setInterval(() => {
-    moveSnake();
-    draw();
-}, 300)
+
+function speedIncrease() {
+    if (gameSDelay > 150) {
+        gameSDelay = gameSDelay - 5;
+    } else if (gameSDelay > 100) {
+        gameSDelay = gameSDelay - 3;
+    }
+}
