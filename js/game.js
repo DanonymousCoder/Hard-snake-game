@@ -81,7 +81,7 @@ function moveSnake() {
     snake.unshift(ori);
     snake.pop();
 
-    if (head.x === food.x && head.y === food.y) {
+    if (ori.x === food.x && ori.y === food.y) {
         food = generateRandomFood();
         clearInterval();
 
@@ -129,4 +129,28 @@ let gameStarted = false;
 function startGame() {
     gameStarted = true;
     document.getElementById("instruction").style.display = "none";
+    document.getElementById("img-snake").style.display = "none";
+    ourGameInt = setInterval(() => {
+        moveSnake();
+        checkForCollision();
+        draw();
+    }, gameSDelay);
 }
+
+function handleKeys(event) {
+    if (!(gameStarted && (event.key === " " || event.key === "Space"))) {
+        startGame()
+    } else {
+        if (event.key == "ArrowRight") {
+            direction = "right";
+        } else if (event.key == "ArrowUp") {
+            direction = "up";
+        } else if (event.key == "ArrowLeft") {
+            direction = "left";
+        } else {
+            direction = "down";
+        }
+    }
+}
+
+document.addEventListener("keydown", handleKeys)
