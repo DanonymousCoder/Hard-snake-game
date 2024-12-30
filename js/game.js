@@ -110,5 +110,23 @@ function speedIncrease() {
 function checkForCollision() {
     let ori = snake[0];
 
-    if (ori.x < 1 || ori.x > gridSize)
+    if (ori.x < 1 || ori.x > gridSize || ori.y < 1 || ori.y > gridSize) {
+        resetGame();
+    }
+
+    let i = 1;
+
+    while (i < snake.length) {
+        if (snake[i].x === ori.x && snake[i].y === ori.y) {
+            resetGame();
+        }
+        i++;
+    }
+}
+
+let gameStarted = false;
+
+function startGame() {
+    gameStarted = true;
+    document.getElementById("instruction").style.display = "none";
 }
