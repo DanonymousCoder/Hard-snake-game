@@ -16,8 +16,6 @@
 
 .snake {
     background-color: #FFFFFF;
-    width: 50px;
-    height: 50px;
 }
 
 .scores {
@@ -64,13 +62,12 @@
     font-size: 40px;
 }
 
-canvas {
+#gameCanvas {
     background-color: #c4d4aa;
     border: 24px solid;
     border-image: linear-gradient(to bottom, #5a684a, #497361) 1;
     border-radius: 80px;
-}
-
-canvas {
-    background-color: #c4d4aa;
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(20, 20px);
 }

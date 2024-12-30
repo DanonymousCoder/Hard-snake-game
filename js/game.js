@@ -7,7 +7,7 @@ let snake = [
     }
 ];
 
-let food = generateRandomFood();
+// let food = generateRandomFood();
 
 function draw() {
     canvas.innerHTML = " ";
