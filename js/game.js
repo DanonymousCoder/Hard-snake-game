@@ -13,19 +13,22 @@ function draw() {
     canvas.innerHTML = " ";
 
     // Draw snake
-    drawSnake();
+
+    const drawSnake = () => {
+        snake.forEach((segment) => {
+            const snakeElement = document.createElement("div");
+            snakeElement.classList.add("snake");
+            snakeElement.style.gridRowStart = segment.y;
+            snakeElement.style.gridColumnStart = segment.x;
+            canvas.appendChild(snakeElement);
+        })
+    };
+
+    drawSnake()
 }
 
 
-function drawSnake() {
-    snake.forEach((segment) => {
-        const snakeElement = document.createElement("div");
-        snakeElement.classList.add("snake");
-        snakeElement.style.gridRowStart = segment.y;
-        snakeElement.style.gridColumnStart = segment.x;
-        canvas.appendChild(snakeElement);
-    })
-};
+
 
 
 // Draw testing
