@@ -14,6 +14,15 @@
     height: 100vh;
 }
 
+.snake {
+    background-color: #FFFFFF;
+}
+
+.food {
+    background-color: rgb(82, 110, 86);
+    border: 1px solid #c4d4aa;
+}
+
 .scores {
     width: 500px;
     display: flex;
@@ -35,7 +44,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: .7em;
     justify-content: center;
     align-items: center;
 }
@@ -48,15 +57,24 @@
     font-family: "Epilogue", sans-serif;
     font-weight: 700;
     color: #497361;
+    text-align: center;
+    font-size: 25px;
+    width: 90%;
 }
 
-canvas {
+.scores p {
+    color: #c4d4aa;
+    font-weight: 700;
+    font-family: "Epilogue", sans-serif;
+    font-size: 40px;
+}
+
+#gameCanvas {
     background-color: #c4d4aa;
     border: 24px solid;
     border-image: linear-gradient(to bottom, #5a684a, #497361) 1;
     border-radius: 80px;
-}
-
-canvas {
-    background-color: #c4d4aa;
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(20, 20px);
 }
