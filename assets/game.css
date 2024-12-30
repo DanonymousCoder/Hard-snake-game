@@ -19,7 +19,8 @@
 }
 
 .food {
-    background-color: linear-gradient(to bottom, #5a684a, #497361) 1;
+    background-color: rgb(82, 110, 86);
+    border: 1px solid #c4d4aa;
 }
 
 .scores {
