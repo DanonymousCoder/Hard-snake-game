@@ -57,7 +57,10 @@ function generateRandomFood() {
 }
 
 
-let whereFace = "up";
+let whereFace = "left";
+
+let ourGameInt;
+let gameSDelay = 500;
 
 function moveSnake() {
     let ori = {
@@ -69,9 +72,27 @@ function moveSnake() {
         ori.y++;
     } else if (whereFace == "right") {
         ori.x++;
-    } else if () {
+    } else if (whereFace == "down") {
+        ori.y--;
+    } else {
+        ori.x--;
+    }
 
-    } else if () {
+    snake.unshift(ori);
+    snake.pop();
 
+    if (head.x === food.x && head.y === food.y) {
+        food = generateRandomFood();
+        clearInterval();
+
+        ourGameInt = setInterval(() => {
+            moveSnake();
+            draw();
+        }, gameSDelay);
     }
 }
+
+setInterval(() => {
+    moveSnake();
+    draw();
+}, 300)
