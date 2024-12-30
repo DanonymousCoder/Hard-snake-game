@@ -18,6 +18,10 @@
     background-color: #FFFFFF;
 }
 
+.food {
+    background-color: linear-gradient(to bottom, #5a684a, #497361) 1;
+}
+
 .scores {
     width: 500px;
     display: flex;

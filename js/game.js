@@ -1,4 +1,4 @@
-const canvas = document.getElementById("gameCanvas");
+let canvas = document.getElementById("gameCanvas");
 
 let snake = [
     {
@@ -16,7 +16,7 @@ function draw() {
 
     const drawSnake = () => {
         snake.forEach((segment) => {
-            const snakeElement = document.createElement("div");
+            let snakeElement = document.createElement("div");
             snakeElement.classList.add("snake");
             snakeElement.style.gridRowStart = segment.y;
             snakeElement.style.gridColumnStart = segment.x;
@@ -30,7 +30,6 @@ function draw() {
 
 
 
-
 // Draw testing
 draw();
 
@@ -38,7 +37,7 @@ draw();
 // function to draw the snake food
 
 function snakeFood() {
-    const foodElement = document.createElement("div");
+    let foodElement = document.createElement("div");
     foodElement.classList.add("food");
     foodElement.style.gridRowStart = 5;
 }
