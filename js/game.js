@@ -149,13 +149,13 @@ function handleKeys(event) {
         startGame()
     } else {
         if (event.code == "ArrowRight") {
-            direction = "right";
+            whereFace = "right";
         } else if (event.code == "ArrowUp") {
-            direction = "up";
-        } else if (event.code == "ArrowLeft") {
-            direction = "left";
+            whereFace = "up";
+        } else if (event.code == "ArrowDown") {
+            whereFace = "down";
         } else {
-            direction = "down";
+            whereFace = "left";
         }
     }
 }
