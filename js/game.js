@@ -1,4 +1,6 @@
 let canvas = document.getElementById("gameCanvas");
+let currentScore = document.getElementById("current-score");
+let highScore = document.getElementById("high-score");
 
 let snake = [
     {
@@ -107,6 +109,8 @@ function speedIncrease() {
     }
 }
 
+let gridSize = 20;
+
 function checkForCollision() {
     let ori = snake[0];
 
@@ -153,4 +157,17 @@ function handleKeys(event) {
     }
 }
 
-document.addEventListener("keydown", handleKeys)
+document.addEventListener("keydown", handleKeys);
+
+currentScore.innerHTML = "001";
+
+function endGame() {
+    clearInterval(ourGameInt);
+    gameStarted = false;
+    document.getElementById("instruction").style.display = "block";
+    document.getElementById("image-snake").style.display = "block";
+}
+
+function resetGame() {
+    endGame();
+}
