@@ -142,10 +142,10 @@ function startGame() {
 }
 
 function handleKeys(event) {
-    if (!(gameStarted && (event.key === " " || event.key === "Space"))) {
+    if (!(gameStarted && (event.code === " " || event.code === "Space"))) {
         startGame()
     } else {
-        if (event.key == "ArrowRight") {
+        if (event.ke == "ArrowRight") {
             direction = "right";
         } else if (event.key == "ArrowUp") {
             direction = "up";
@@ -170,4 +170,22 @@ function endGame() {
 
 function resetGame() {
     endGame();
+    updateScore();
+    snake = [
+        {
+            x: 20,
+            y: 20
+        }
+    ];
+    food = generateRandomFood();
+    direction = 'left';
+    gameSDelay = 1000;
+
 }
+
+function updateScore() {
+    let score = snake.length - 1;
+    currentScore.innerHTML = score;
+}
+
+function update
