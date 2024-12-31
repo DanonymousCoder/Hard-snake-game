@@ -71,13 +71,13 @@ function moveSnake() {
     }
 
     if (whereFace == "up") {
-        ori.y++;
-    } else if (whereFace == "right") {
-        ori.x++;
-    } else if (whereFace == "down") {
         ori.y--;
-    } else {
+    } else if (whereFace == "right") {
         ori.x--;
+    } else if (whereFace == "down") {
+        ori.y++;
+    } else {
+        ori.x++;
     }
 
     snake.unshift(ori);
