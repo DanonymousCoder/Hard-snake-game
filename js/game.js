@@ -81,7 +81,7 @@ function moveSnake() {
     }
 
     snake.unshift(ori);
-    snake.pop();
+    // sna
 
     if (ori.x === food.x && ori.y === food.y) {
         food = generateRandomFood();
