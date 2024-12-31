@@ -65,7 +65,7 @@ let ourGameInt;
 let gameSDelay = 500;
 
 function moveSnake() {
-    let ori = {
+    const ori = {
         x: snake[0].x,
         y: snake[0].y
     }
@@ -109,20 +109,23 @@ function speedIncrease() {
     }
 }
 
-let gridSize = 20;
+const gridSize = 20;
 
 function checkForCollision() {
-    let ori = snake[0];
+    const ori = snake[0];
 
-    if (ori.x < 1 || ori.x > gridSize || ori.y < 1 || ori.y > gridSize) {
+
+    if (ori.x < 0 || ori.x >= canvas.width || ori.y < 0 || ori.y >= canvas.height) {
         resetGame();
     }
 
-    let i = 1;
+    const i = 1;
 
     while (i < snake.length) {
-        if (snake[i].x === ori.x && snake[i].y === ori.y) {
-            resetGame();
+        if (!snake[i]) {
+            console.error(`Undefine snake position at index ${i}`);
+            break;
+            // resetGame();
         }
         i++;
     }
@@ -142,14 +145,14 @@ function startGame() {
 }
 
 function handleKeys(event) {
-    if (!(gameStarted && (event.code === " " || event.code === "Space"))) {
+    if (!(gameStarted && (event.key === " " || event.code === "Space"))) {
         startGame()
     } else {
-        if (event.ke == "ArrowRight") {
+        if (event.code == "ArrowRight") {
             direction = "right";
-        } else if (event.key == "ArrowUp") {
+        } else if (event.code == "ArrowUp") {
             direction = "up";
-        } else if (event.key == "ArrowLeft") {
+        } else if (event.code == "ArrowLeft") {
             direction = "left";
         } else {
             direction = "down";
@@ -158,8 +161,6 @@ function handleKeys(event) {
 }
 
 document.addEventListener("keydown", handleKeys);
-
-currentScore.innerHTML = "001";
 
 function endGame() {
     clearInterval(ourGameInt);
@@ -180,7 +181,6 @@ function resetGame() {
     food = generateRandomFood();
     direction = 'left';
     gameSDelay = 1000;
-
 }
 
 function updateScore() {
@@ -188,4 +188,6 @@ function updateScore() {
     currentScore.innerHTML = score;
 }
 
-function update
+function updateHighScore() {
+
+}
