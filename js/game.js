@@ -1,6 +1,6 @@
 let canvas = document.getElementById("gameCanvas");
 let currentScore = document.getElementById("current-score");
-let highScore = document.getElementById("highscore");
+let highScoreT = document.getElementById("highscore");
 
 let snake = [
     {
@@ -118,16 +118,17 @@ function checkForCollision() {
         // resetGame();
     }
 
-    const i = 1;
+    let i = 1;
 
     while (i < snake.length) {
-        if (!snake[i]) {
-            console.error(`Undefine snake position at index ${i}`);
+        if (ori.x === snake[i].x && ori.y === snake[i].y) {
+            resetGame();
             break;
-            // resetGame();
         }
+
         i++;
     }
+
 }
 
 let gameStarted = false;
@@ -138,7 +139,7 @@ function startGame() {
     document.getElementById("img-snake").style.display = "none";
     ourGameInt = setInterval(() => {
         moveSnake();
-        // checkForCollision();
+        checkForCollision();
         draw();
     }, gameSDelay);
 }
@@ -162,8 +163,8 @@ function handleKeys(event) {
 
 document.addEventListener("keydown", handleKeys);
 
-/**
- * unction endGame() {
+
+function endGame() {
     clearInterval(ourGameInt);
     gameStarted = false;
     document.getElementById("instruction").style.display = "block";
@@ -194,8 +195,8 @@ function updateHighScore() {
 
     if (currentScore > highScore) {
         highScore = currentScore;
-        highScore.innerHtml = highScore.toString().padStart(3, '0');
+        highScoreT.innerHtml = highScore.toString().padStart(3, '0');
     }
+
+    highScoreT.style.display = "block";
 }
- * 
- */
