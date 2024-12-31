@@ -1,6 +1,6 @@
 let canvas = document.getElementById("gameCanvas");
 let currentScore = document.getElementById("current-score");
-let highScore = document.getElementById("high-score");
+let highScore = document.getElementById("highscore");
 
 let snake = [
     {
@@ -185,4 +185,13 @@ function resetGame() {
 function updateScore() {
     let score = snake.length - 1;
     currentScore.innerHTML = score;
+}
+
+function updateHighScore() {
+    const currentScore = snake.length - 1;
+
+    if (currentScore > highScore) {
+        highScore = currentScore;
+        highScore.innerHtml = highScore.toString().padStart(3, '0');
+    }
 }
