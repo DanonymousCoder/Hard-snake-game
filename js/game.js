@@ -59,7 +59,7 @@ function generateRandomFood() {
 }
 
 
-let whereFace = "left";
+let whereFace;
 
 let ourGameInt;
 let gameSDelay = 500;
@@ -81,7 +81,6 @@ function moveSnake() {
     }
 
     snake.unshift(ori);
-    // sna
 
     if (ori.x === food.x && ori.y === food.y) {
         food = generateRandomFood();
@@ -146,15 +145,15 @@ function startGame() {
 
 function handleKeys(event) {
     if (!(gameStarted && (event.key === " " || event.code === "Space"))) {
-        startGame()
+        startGame();
     } else {
-        if (event.code == "ArrowRight") {
+        if (event.key == "ArrowRight") {
             whereFace = "right";
-        } else if (event.code == "ArrowUp") {
+        } else if (event.key == "ArrowUp") {
             whereFace = "up";
-        } else if (event.code == "ArrowDown") {
+        } else if (event.key == "ArrowDown") {
             whereFace = "down";
-        } else {
+        } else if (event.key == "ArrowLeft") {
             whereFace = "left";
         }
     }
@@ -180,14 +179,10 @@ function resetGame() {
     ];
     food = generateRandomFood();
     direction = 'left';
-    gameSDelay = 1000;
+    gameSDelay = 500;
 }
 
 function updateScore() {
     let score = snake.length - 1;
     currentScore.innerHTML = score;
-}
-
-function updateHighScore() {
-
 }
