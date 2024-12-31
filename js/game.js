@@ -115,7 +115,7 @@ function checkForCollision() {
 
 
     if (ori.x < 0 || ori.x >= canvas.width || ori.y < 0 || ori.y >= canvas.height) {
-        // resetGame();
+        resetGame();
     }
 
     let i = 1;
@@ -168,21 +168,23 @@ function endGame() {
     clearInterval(ourGameInt);
     gameStarted = false;
     document.getElementById("instruction").style.display = "block";
-    document.getElementById("image-snake").style.display = "block";
+    document.getElementById("img-snake").style.display = "block";
 }
 
 function resetGame() {
+    updateHighScore();
     endGame();
-    updateScore();
     snake = [
         {
-            x: 20,
-            y: 20
+            x: 10,
+            y: 10
         }
     ];
+    updateHighScore();
     food = generateRandomFood();
     direction = 'left';
-    gameSDelay = 500;
+    gameSDelay = 200;
+    updateScore();
 }
 
 function updateScore() {

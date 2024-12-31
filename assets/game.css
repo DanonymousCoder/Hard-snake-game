@@ -69,6 +69,10 @@
     font-size: 40px;
 }
 
+#highscore {
+    display: none;
+}
+
 #gameCanvas {
     background-color: #c4d4aa;
     border: 24px solid;
