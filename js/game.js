@@ -59,7 +59,7 @@ function generateRandomFood() {
 }
 
 
-let whereFace;
+let whereFace = "up";
 
 let ourGameInt;
 let gameSDelay = 200;
@@ -71,13 +71,13 @@ function moveSnake() {
     }
 
     if (whereFace == "up") {
-        ori.y++;
-    } else if (whereFace == "right") {
-        ori.x++;
-    } else if (whereFace == "down") {
         ori.y--;
-    } else if (whereFace == "left") {
+    } else if (whereFace == "right") {
         ori.x--;
+    } else if (whereFace == "down") {
+        ori.y++;
+    } else if (whereFace == "left") {
+        ori.x++;
     }
 
     snake.unshift(ori);
@@ -115,7 +115,7 @@ function checkForCollision() {
 
 
     if (ori.x < 0 || ori.x >= canvas.width || ori.y < 0 || ori.y >= canvas.height) {
-        resetGame();
+        // resetGame();
     }
 
     const i = 1;
@@ -138,22 +138,22 @@ function startGame() {
     document.getElementById("img-snake").style.display = "none";
     ourGameInt = setInterval(() => {
         moveSnake();
-        checkForCollision();
+        // checkForCollision();
         draw();
     }, gameSDelay);
 }
 
-function handleKeys(keydown) {
-    if (!(gameStarted && (keydown.key === " " || keydown.code === "Space"))) {
+function handleKeys(event) {
+    if (!(gameStarted && (event.key === " " || event.code === "Space"))) {
         startGame();
     } else {
-        if (keydown.key == "ArrowRight" && whereFace !== "left") {
+        if (event.key == "ArrowRight" && whereFace !== "left") {
             whereFace = "right";
-        } else if (keydown.key == "ArrowUp") {
+        } else if (event.key == "ArrowUp") {
             whereFace = "up";
-        } else if (keydown.key == "ArrowDown") {
+        } else if (event.key == "ArrowDown") {
             whereFace = "down";
-        } else if (keydown.key == "ArrowLeft") {
+        } else if (event.key == "ArrowLeft") {
             whereFace = "left";
         }
     }
