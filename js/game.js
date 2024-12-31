@@ -1,4 +1,6 @@
 let canvas = document.getElementById("gameCanvas");
+let currentScore = document.getElementById("current-score");
+let highScoreT = document.getElementById("highscore");
 
 let snake = [
     {
@@ -57,29 +59,28 @@ function generateRandomFood() {
 }
 
 
-let whereFace = "left";
+let whereFace = "up";
 
 let ourGameInt;
-let gameSDelay = 500;
+let gameSDelay = 200;
 
 function moveSnake() {
-    let ori = {
+    const ori = {
         x: snake[0].x,
         y: snake[0].y
     }
 
     if (whereFace == "up") {
-        ori.y++;
+        ori.y--;
     } else if (whereFace == "right") {
         ori.x++;
     } else if (whereFace == "down") {
-        ori.y--;
-    } else {
+        ori.y++;
+    } else if (whereFace == "left") {
         ori.x--;
     }
 
     snake.unshift(ori);
-    snake.pop();
 
     if (ori.x === food.x && ori.y === food.y) {
         food = generateRandomFood();
@@ -107,21 +108,27 @@ function speedIncrease() {
     }
 }
 
-function checkForCollision() {
-    let ori = snake[0];
+const gridSize = 20;
 
-    if (ori.x < 1 || ori.x > gridSize || ori.y < 1 || ori.y > gridSize) {
+function checkForCollision() {
+    const ori = snake[0];
+
+
+    if (ori.x < 0 || ori.x >= canvas.width || ori.y < 0 || ori.y >= canvas.height) {
         resetGame();
     }
 
     let i = 1;
 
     while (i < snake.length) {
-        if (snake[i].x === ori.x && snake[i].y === ori.y) {
+        if (ori.x === snake[i].x && ori.y === snake[i].y) {
             resetGame();
+            break;
         }
+
         i++;
     }
+
 }
 
 let gameStarted = false;
@@ -138,19 +145,60 @@ function startGame() {
 }
 
 function handleKeys(event) {
-    if (!(gameStarted && (event.key === " " || event.key === "Space"))) {
-        startGame()
-    } else {
-        if (event.key == "ArrowRight") {
-            direction = "right";
-        } else if (event.key == "ArrowUp") {
-            direction = "up";
-        } else if (event.key == "ArrowLeft") {
-            direction = "left";
-        } else {
-            direction = "down";
+    if (!gameStarted) {
+        if (event.key === " " || event.code === "Space") {
+            startGame();
         }
+        return;
+    } else if (event.key === "ArrowRight" && whereFace !== "left") {
+        whereFace = "right";
+    } else if (event.key === "ArrowUp" && whereFace !== "down") {
+        whereFace = "up";
+    } else if (event.key === "ArrowDown" && whereFace !== "up") {
+        whereFace = "down";
+    } else if (event.key === "ArrowLeft" && whereFace !== "right") {
+        whereFace = "left";
     }
 }
 
-document.addEventListener("keydown", handleKeys)
+document.addEventListener("keydown", handleKeys);
+
+
+function endGame() {
+    clearInterval(ourGameInt);
+    gameStarted = false;
+    document.getElementById("instruction").style.display = "block";
+    document.getElementById("img-snake").style.display = "block";
+}
+
+function resetGame() {
+    updateHighScore();
+    endGame();
+    snake = [
+        {
+            x: 10,
+            y: 10
+        }
+    ];
+    updateHighScore();
+    food = generateRandomFood();
+    direction = 'left';
+    gameSDelay = 200;
+    updateScore();
+}
+
+function updateScore() {
+    let score = snake.length - 1;
+    currentScore.innerHTML = score;
+}
+
+function updateHighScore() {
+    const currentScore = snake.length - 1;
+
+    if (currentScore > highScore) {
+        highScore = currentScore;
+        highScoreT.innerHtml = highScore.toString().padStart(3, '0');
+    }
+
+    highScoreT.style.display = "block";
+}
