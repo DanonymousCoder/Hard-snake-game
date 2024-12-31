@@ -144,18 +144,19 @@ function startGame() {
 }
 
 function handleKeys(event) {
-    if (!(gameStarted && (event.key === " " || event.code === "Space"))) {
-        startGame();
-    } else {
-        if (event.key == "ArrowRight" && whereFace !== "left") {
-            whereFace = "right";
-        } else if (event.key == "ArrowUp") {
-            whereFace = "up";
-        } else if (event.key == "ArrowDown") {
-            whereFace = "down";
-        } else if (event.key == "ArrowLeft") {
-            whereFace = "left";
+    if (!gameStarted) {
+        if (event.key === " " || event.code === "Space") {
+            startGame();
         }
+        return;
+    } else if (event.key === "ArrowRight" && whereFace !== "left") {
+        whereFace = "right";
+    } else if (event.key === "ArrowUp" && whereFace !== "down") {
+        whereFace = "up";
+    } else if (event.key === "ArrowDown" && whereFace !== "up") {
+        whereFace = "down";
+    } else if (event.key === "ArrowLeft" && whereFace !== "right") {
+        whereFace = "left";
     }
 }
 
