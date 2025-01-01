@@ -12,11 +12,8 @@ toggler.addEventListener("click", () => {
     utils.classList.toggle("dark");
     body.classList.toggle("dark");
 
-    // toggler.classList.remove("bx-sun");
-    toggler.classList.toggle("bx-moon");
-    toggler.style.color = "#FFFFFF";
-
-    toggler.classList.toggle("bx-moon");
+    toggler.classList.remove("bx-sun");
+    toggler.classList.add("bx-moon");
     toggler.style.color = "#FFFFFF";
 })
 
