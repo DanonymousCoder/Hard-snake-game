@@ -5,13 +5,19 @@ let highScoreT = document.getElementById("highscore");
 let toggler = document.getElementById("toggler");
 let container = document.getElementById("container");
 let utils = document.getElementById("utils");
+let body = document.getElementById("body");
 
 toggler.addEventListener("click", () => {
     container.classList.toggle("dark");
     utils.classList.toggle("dark");
+    body.classList.toggle("dark");
+
+    // toggler.classList.remove("bx-sun");
+    toggler.classList.toggle("bx-moon");
     toggler.style.color = "#FFFFFF";
-    toggler.classList.remove("bx-sun");
-    toggler.classList.add("bx-moon");
+
+    toggler.classList.toggle("bx-moon");
+    toggler.style.color = "#FFFFFF";
 })
 
 let snake = [
