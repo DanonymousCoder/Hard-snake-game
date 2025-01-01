@@ -2,6 +2,21 @@ let canvas = document.getElementById("gameCanvas");
 let currentScore = document.getElementById("current-score");
 let highScoreT = document.getElementById("highscore");
 
+let toggler = document.getElementById("toggler");
+let container = document.getElementById("container");
+let utils = document.getElementById("utils");
+let body = document.getElementById("body");
+
+toggler.addEventListener("click", () => {
+    container.classList.toggle("dark");
+    utils.classList.toggle("dark");
+    body.classList.toggle("dark");
+
+    toggler.classList.remove("bx-sun");
+    toggler.classList.add("bx-moon");
+    toggler.style.color = "#FFFFFF";
+})
+
 let snake = [
     {
         x: 10,
@@ -84,10 +99,11 @@ function moveSnake() {
 
     if (ori.x === food.x && ori.y === food.y) {
         food = generateRandomFood();
-        clearInterval();
-
+        speedIncrease();
+        clearInterval(ourGameInt);
         ourGameInt = setInterval(() => {
             moveSnake();
+            checkForCollision();
             draw();
         }, gameSDelay);
     } else {
