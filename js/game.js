@@ -3,13 +3,15 @@ let currentScore = document.getElementById("current-score");
 let highScoreT = document.getElementById("highscore");
 
 let toggler = document.getElementById("toggler");
-let container = document.getElementById("container")
+let container = document.getElementById("container");
+let utils = document.getElementById("utils");
 
 toggler.addEventListener("click", () => {
     container.classList.toggle("dark");
+    utils.classList.toggle("dark");
     toggler.style.color = "#FFFFFF";
     toggler.classList.remove("bx-sun");
-    toggler.classList.add()
+    toggler.classList.add("bx-moon");
 })
 
 let snake = [
