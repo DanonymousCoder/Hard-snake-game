@@ -4,6 +4,24 @@
     box-sizing: border-box;
 }
 
+/*
+    Dark mode starts
+*/
+
+.container.dark {
+    background-color: #000000;
+    height: 100vh;
+    width: 100%;
+}
+
+.dark .snake {
+    background-color: #000000;
+}
+
+/*
+    Dark mode ends
+*/
+
 .container {
     display: flex;
     flex-direction: column;
@@ -12,6 +30,10 @@
     align-items: center;
     width: 100%;
     height: 100vh;
+}
+
+#toggler {
+    font-size: 30px;
 }
 
 .snake {
@@ -70,6 +92,10 @@
 }
 
 #highscore {
+    color: #c4d4aa;
+    font-weight: 700;
+    font-family: "Epilogue", sans-serif;
+    font-size: 40px;
     display: none;
 }
 
