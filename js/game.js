@@ -5,16 +5,27 @@ let highScoreT = document.getElementById("highscore");
 let toggler = document.getElementById("toggler");
 let container = document.getElementById("container");
 let utils = document.getElementById("utils");
-let body = document.getElementById("body");
+let bodyC = document.getElementById("body");
+let sNake = document.querySelector(".snake");
+let foOd = document.querySelector(".food")
+let leaderboard = document.getElementById("leaderboard");
+let highscore = 0;
 
 toggler.addEventListener("click", () => {
     container.classList.toggle("dark");
     utils.classList.toggle("dark");
-    body.classList.toggle("dark");
+    bodyC.classList.toggle("dark");
 
-    toggler.classList.remove("bx-sun");
-    toggler.classList.add("bx-moon");
-    toggler.style.color = "#FFFFFF";
+
+    if (toggler.classList.contains("bx-sun")) {
+        toggler.classList.replace("bx-sun", "bx-moon");
+        toggler.style.color = "#FFFFFF";
+        leaderboard.style.color = "#FFFFFF";
+    } else if (toggler.classList.contains("bx-moon")) {
+        toggler.classList.replace("bx-moon", "bx-sun");
+        toggler.style.color = "#000000";
+        leaderboard.style.color = "#000000";
+    }
 })
 
 let snake = [
@@ -162,6 +173,7 @@ function startGame() {
 
 function handleKeys(event) {
     if (!gameStarted) {
+
         if (event.key === " " || event.code === "Space") {
             startGame();
         }
@@ -188,7 +200,6 @@ function endGame() {
 }
 
 function resetGame() {
-    updateHighScore();
     endGame();
     snake = [
         {
@@ -205,15 +216,15 @@ function resetGame() {
 
 function updateScore() {
     let score = snake.length - 1;
-    currentScore.innerHTML = score;
+    currentScore.innerHTML = score.toString().padStart(3, '0');
 }
 
 function updateHighScore() {
     const currentScore = snake.length - 1;
 
-    if (currentScore > highScore) {
-        highScore = currentScore;
-        highScoreT.innerHtml = highScore.toString().padStart(3, '0');
+    if (currentScore > highscore) {
+        highscore = currentScore;
+        highScoreT.innerHtml = highscore.toString().padStart(3, '0');
     }
 
     highScoreT.style.display = "block";
