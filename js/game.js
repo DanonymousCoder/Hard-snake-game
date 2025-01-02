@@ -12,9 +12,14 @@ toggler.addEventListener("click", () => {
     utils.classList.toggle("dark");
     bodyC.classList.toggle("dark");
 
-    toggler.classList.remove("bx-sun");
-    toggler.classList.add("bx-moon");
-    toggler.style.color = "#FFFFFF";
+
+    if (toggler.classList.contains("bx-sun")) {
+        toggler.classList.replace("bx-sun", "bx-moon");
+        toggler.style.color = "#FFFFFF";
+    } else if (toggler.classList.contains("bx-moon")) {
+        toggler.classList.replace("bx-moon", "bx-sun");
+        toggler.style.color = "#000000";
+    }
 })
 
 let snake = [
